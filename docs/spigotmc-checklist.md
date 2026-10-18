@@ -80,6 +80,8 @@ descripcion por la URL que devuelva SpigotMC:
 | `docs/assets/<idioma>/trades.png` | 1280x720 | `URL_TRADES` | En configuracion. |
 | `docs/assets/<idioma>/npcs.png` | 1280x720 | `URL_NPCS` | En las preguntas frecuentes. |
 | `docs/assets/icon.png` | 512x512 | — | **En el formulario** (icono del recurso), no en la descripcion. |
+| `docs/assets/discord.png` | 1280x260 | `URL_DISCORD` | Al final, dentro del bloque de comunidad. |
+| `docs/assets/documentation.png` | 1280x260 | `URL_DOCS` | Al final, dentro del bloque de comunidad. |
 
 El juego de infografias existe en **espanol** (`docs/assets/es/`) y en
 **ingles** (`docs/assets/en/`): usa el que corresponda al idioma de la
