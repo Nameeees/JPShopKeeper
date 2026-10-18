@@ -1,0 +1,115 @@
+# ============================================================
+#  JPShopKeeper - messages_en.yml (English)
+#  Loaded when config.yml has "settings.language: en".
+#  Placeholders use braces: {trader}, {page}, {money}, {items}...
+#  Colors with & (1.8+ compatible). Do not mix with MiniMessage.
+# ============================================================
+
+prefix: "&8[&2JP&aShopKeeper&8] &7» &f"
+
+general:
+  player-only: "{prefix}&cOnly players can use this command."
+  no-permission: "{prefix}&cYou do not have permission to do this &8(&f{permission}&8)&c."
+  unknown-subcommand: "{prefix}&cUnknown subcommand: &f{sub}&c. Use &f/trader help&c."
+  invalid-number: "{prefix}&cInvalid number: &f{input}&c. Type a number (e.g. &f250&c)."
+  invalid-integer: "{prefix}&cInvalid amount: &f{input}&c. Type a whole number between &f{min} &cand &f{max}&c."
+  reload-done: "{prefix}&aConfiguration reloaded &8(&f{traders} traders&8)&a."
+  input-hint: "{prefix}&7Type the value in chat. &8(type &fcancel &8to abort)"
+  input-cancelled: "{prefix}&7Input cancelled."
+  # Word that cancels any chat input.
+  cancel-word: "cancel"
+
+help:
+  header: "{prefix}&7Available commands:"
+  create: "&8 » &a/trader create <id> [mob] &7- Creates a trader where you stand."
+  edit: "&8 » &a/trader edit <id> &7- Opens the editor panel."
+  remove: "&8 » &a/trader remove <id> &7- Deletes a trader and all its data."
+  rename: "&8 » &a/trader rename <id> <name> &7- Renames the NPC."
+  list: "&8 » &a/trader list &7- Lists every trader."
+  tp: "&8 » &a/trader tp <id> &7- Teleports you to a trader."
+  reload: "&8 » &a/trader reload &7- Reloads configs and data."
+  tip: "&8 » &7Use &fshift + right click &7on an NPC to open its editor."
+
+trader:
+  created: "{prefix}&aTrader &f{trader} &acreated &8(&f{type}&8) &ain &f{world} {coords}&a."
+  already-exists: "{prefix}&cA trader with the id &f{id} &calready exists."
+  not-found: "{prefix}&cThere is no trader with the id &f{id}&c."
+  invalid-id: "{prefix}&cInvalid id &8(&f{id}&8)&c: use letters, numbers, dash and underscore (max. 32)."
+  removed: "{prefix}&aTrader &f{trader} &awas completely deleted."
+  renamed: "{prefix}&aTrader &f{trader} &arenamed to &f{name}&a."
+  type-changed: "{prefix}&aTrader &f{trader} &amob type changed to &f{type}&a."
+  moved: "{prefix}&aTrader &f{trader} &amoved to your position."
+  teleported: "{prefix}&aTeleported to trader &f{trader}&a."
+  world-missing: "{prefix}&cThe world of this trader is not loaded &8(&f{world}&8)&c."
+  list-header: "{prefix}&7Traders &8(&f{count}&8)&7:"
+  list-line: "&8 » &a{id} &7- &f{world} {coords} &8({type})"
+  list-empty: "{prefix}&7There are no traders yet."
+  invalid-type: "{prefix}&cInvalid mob: &f{type}&c. Check &fconfig.yml &8(npc.allowed-types)&c."
+
+trade:
+  empty-trader: "{prefix}&7This trader has no trades configured yet."
+  success: "{prefix}&aTrade completed: &f{result}&a."
+  cooldown: "{prefix}&cYou must wait &f{time} &cseconds to repeat this trade."
+  missing-items: "{prefix}&cYou are missing items: &f{items}&c."
+  missing-money: "{prefix}&cYou are missing &f{money} &ccoins &8(you have &f{balance}&8)&c."
+  no-economy: "{prefix}&cThis trade costs money, but the server has no economy &8(Vault)&c."
+  no-permission: "{prefix}&cThis trade requires the permission &f{permission}&c."
+  inventory-full: "{prefix}&eYour inventory was full: the result was dropped on the ground."
+  cancelled-full: "{prefix}&cThere is no room in your inventory for &f{result}&c."
+
+confirm:
+  delete-trader:
+    question: "Delete the trader {trader}"
+    details:
+      - "&7The NPC and every trade will be deleted."
+      - "&cThis cannot be undone."
+  delete-page:
+    question: "Delete the page {page}"
+    details:
+      - "&7Every trade on this page will be deleted."
+  delete-trade:
+    question: "Delete the trade in slot {slot}"
+    details:
+      - "&7Its whole configuration will be erased."
+
+editor:
+  # Default name of a freshly created trader.
+  default-trader-name: "&a{id}"
+  # Default name of a new page ({n} = page number).
+  page-default-name: "Page {n}"
+  # Labels shown when a slot is selected in the editor.
+  label-cost: "Cost {index}"
+  label-result: "Result"
+  prompt-trader-name: "{prefix}&7Type the new &fNPC name&7."
+  prompt-page-name: "{prefix}&7Type the new &fpage name&7."
+  prompt-amount: "{prefix}&7Type the &famount &7for &f{item}&7."
+  prompt-money: "{prefix}&7Type the &fprice in coins &7(0 = no cost)."
+  prompt-permission: "{prefix}&7Type the &frequired permission &8(type &f{none} &8to remove it)&7."
+  prompt-cooldown: "{prefix}&7Type the &fcooldown in seconds &7(0 = no wait)."
+  # Word that removes a trade permission (an empty value works too).
+  none-word: "none"
+  # Text shown when an optional value is empty.
+  none-label: "&8(none)"
+  trader-renamed: "{prefix}&aName updated to &f{name}&a."
+  page-renamed: "{prefix}&aPage renamed to &f{name}&a."
+  amount-set: "{prefix}&aAmount of &f{item} &aset to &f{amount}&a."
+  item-set: "{prefix}&aAssigned to &f{slot}&a: &f{item}&a."
+  item-cleared: "{prefix}&7Slot &f{slot} &7cleared."
+  money-set: "{prefix}&aTrade price: &f{money} coins&a."
+  permission-set: "{prefix}&aTrade permission: &f{permission}&a."
+  permission-cleared: "{prefix}&aTrade permission removed."
+  cooldown-set: "{prefix}&aCooldown: &f{time}s&a."
+  trade-saved: "{prefix}&aTrade saved."
+  trade-deleted: "{prefix}&aTrade deleted."
+  trade-incomplete: "{prefix}&cMissing result: assign a result item before saving."
+  page-added: "{prefix}&aPage &f{page} &acreated."
+  page-deleted: "{prefix}&aPage deleted."
+  page-limit: "{prefix}&cMaximum of &f{max} &cpages per trader."
+  trader-deleted: "{prefix}&aTrader &f{trader} &adeleted."
+  slot-selected: "{prefix}&eSlot &f{slot} &eselected. &7Click an item in your inventory&8, &7right click = amount&8, &7shift + right click = clear&8."
+
+# Texts returned by PlaceholderAPI placeholders
+# %jpsk_exists_<id>% and %jpsk_ready_<id>_<page>_<slot>%
+placeholder:
+  yes: "yes"
+  no: "no"

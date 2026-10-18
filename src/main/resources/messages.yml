@@ -1,0 +1,115 @@
+# ============================================================
+#  JPShopKeeper - messages.yml
+#  Todos los textos visibles del plugin.
+#  Placeholders entre llaves: {trader}, {page}, {money}, {items}...
+#  Colores con & (compatibles 1.8+). No mezclar con MiniMessage.
+# ============================================================
+
+prefix: "&8[&2JP&aShopKeeper&8] &7» &f"
+
+general:
+  player-only: "{prefix}&cSolo los jugadores pueden usar este comando."
+  no-permission: "{prefix}&cNo tienes permiso para hacer esto &8(&f{permission}&8)&c."
+  unknown-subcommand: "{prefix}&cSubcomando desconocido: &f{sub}&c. Usa &f/trader help&c."
+  invalid-number: "{prefix}&cNumero invalido: &f{input}&c. Escribe un numero (ej: &f250&c)."
+  invalid-integer: "{prefix}&cCantidad invalida: &f{input}&c. Escribe un entero entre &f{min} &cy &f{max}&c."
+  reload-done: "{prefix}&aConfiguracion recargada &8(&f{traders} traders&8)&a."
+  input-hint: "{prefix}&7Escribe el valor en el chat. &8(escribe &fcancelar &8para abortar)"
+  input-cancelled: "{prefix}&7Entrada cancelada."
+  # Palabra que cancela cualquier entrada por chat.
+  cancel-word: "cancelar"
+
+help:
+  header: "{prefix}&7Comandos disponibles:"
+  create: "&8 » &a/trader create <id> [mob] &7- Crea un trader en tu posicion."
+  edit: "&8 » &a/trader edit <id> &7- Abre el panel de edicion."
+  remove: "&8 » &a/trader remove <id> &7- Elimina un trader y sus datos."
+  rename: "&8 » &a/trader rename <id> <nombre> &7- Renombra el NPC."
+  list: "&8 » &a/trader list &7- Lista los traders existentes."
+  tp: "&8 » &a/trader tp <id> &7- Teletransportate a un trader."
+  reload: "&8 » &a/trader reload &7- Recarga configs y datos."
+  tip: "&8 » &7Con &fshift + clic derecho &7sobre un NPC abres su editor."
+
+trader:
+  created: "{prefix}&aTrader &f{trader} &acreado &8(&f{type}&8) &aen &f{world} {coords}&a."
+  already-exists: "{prefix}&cYa existe un trader con el id &f{id}&c."
+  not-found: "{prefix}&cNo existe ningun trader con el id &f{id}&c."
+  invalid-id: "{prefix}&cId invalido &8(&f{id}&8)&c: usa letras, numeros, guion y guion bajo (max. 32)."
+  removed: "{prefix}&aTrader &f{trader} &aeliminado por completo."
+  renamed: "{prefix}&aNombre del trader &f{trader} &aactualizado: &f{name}&a."
+  type-changed: "{prefix}&aTipo de mob del trader &f{trader} &acambiado a &f{type}&a."
+  moved: "{prefix}&aTrader &f{trader} &amovido a tu posicion."
+  teleported: "{prefix}&aTeletransportado al trader &f{trader}&a."
+  world-missing: "{prefix}&cEl mundo de este trader no esta cargado &8(&f{world}&8)&c."
+  list-header: "{prefix}&7Traders &8(&f{count}&8)&7:"
+  list-line: "&8 » &a{id} &7- &f{world} {coords} &8({type})"
+  list-empty: "{prefix}&7Todavia no hay traders creados."
+  invalid-type: "{prefix}&cMob no valido: &f{type}&c. Revisa &fconfig.yml &8(npc.allowed-types)&c."
+
+trade:
+  empty-trader: "{prefix}&7Este trader aun no tiene tradeos configurados."
+  success: "{prefix}&aTradeo completado: &f{result}&a."
+  cooldown: "{prefix}&cDebes esperar &f{time} &csegundos para repetir este tradeo."
+  missing-items: "{prefix}&cTe faltan items: &f{items}&c."
+  missing-money: "{prefix}&cTe faltan &f{money} &cmonedas &8(tienes &f{balance}&8)&c."
+  no-economy: "{prefix}&cEste tradeo cuesta dinero, pero el servidor no tiene economia &8(Vault)&c."
+  no-permission: "{prefix}&cEste tradeo requiere el permiso &f{permission}&c."
+  inventory-full: "{prefix}&eTu inventario estaba lleno: el resultado cayo al suelo."
+  cancelled-full: "{prefix}&cNo hay espacio en tu inventario para &f{result}&c."
+
+confirm:
+  delete-trader:
+    question: "Eliminar el trader {trader}"
+    details:
+      - "&7Se eliminara el NPC y todos sus tradeos."
+      - "&cEsta accion no se puede deshacer."
+  delete-page:
+    question: "Eliminar la pagina {page}"
+    details:
+      - "&7Se eliminaran todos los tradeos de la pagina."
+  delete-trade:
+    question: "Eliminar el tradeo del slot {slot}"
+    details:
+      - "&7Se borrara su configuracion por completo."
+
+editor:
+  # Nombre por defecto de un trader recien creado.
+  default-trader-name: "&a{id}"
+  # Nombre por defecto de una pagina nueva ({n} = numero de pagina).
+  page-default-name: "Pagina {n}"
+  # Etiquetas que se muestran al seleccionar slots del editor.
+  label-cost: "Coste {index}"
+  label-result: "Resultado"
+  prompt-trader-name: "{prefix}&7Escribe el nuevo &fnombre del NPC&7."
+  prompt-page-name: "{prefix}&7Escribe el nuevo &fnombre de la pagina&7."
+  prompt-amount: "{prefix}&7Escribe la &fcantidad &7para &f{item}&7."
+  prompt-money: "{prefix}&7Escribe el &fprecio en monedas &7(0 = sin coste)."
+  prompt-permission: "{prefix}&7Escribe el &fpermiso &7requerido &8(escribe &f{none} &8para quitarlo)&7."
+  prompt-cooldown: "{prefix}&7Escribe el &fenfriamiento en segundos &7(0 = sin espera)."
+  # Palabra que quita el permiso de un tradeo (tambien vale dejarlo vacio).
+  none-word: "none"
+  # Texto que se muestra cuando un valor opcional esta vacio.
+  none-label: "&8(ninguno)"
+  trader-renamed: "{prefix}&aNombre actualizado a &f{name}&a."
+  page-renamed: "{prefix}&aPagina renombrada a &f{name}&a."
+  amount-set: "{prefix}&aCantidad de &f{item} &aajustada a &f{amount}&a."
+  item-set: "{prefix}&aAsignado a &f{slot}&a: &f{item}&a."
+  item-cleared: "{prefix}&7Slot &f{slot} &7vaciado."
+  money-set: "{prefix}&aPrecio del tradeo: &f{money} monedas&a."
+  permission-set: "{prefix}&aPermiso del tradeo: &f{permission}&a."
+  permission-cleared: "{prefix}&aPermiso del tradeo eliminado."
+  cooldown-set: "{prefix}&aEnfriamiento: &f{time}s&a."
+  trade-saved: "{prefix}&aTradeo guardado."
+  trade-deleted: "{prefix}&aTradeo eliminado."
+  trade-incomplete: "{prefix}&cFalta el resultado: asigna un item de resultado antes de guardar."
+  page-added: "{prefix}&aPagina &f{page} &acreada."
+  page-deleted: "{prefix}&aPagina eliminada."
+  page-limit: "{prefix}&cMaximo &f{max} &cpaginas por trader."
+  trader-deleted: "{prefix}&aTrader &f{trader} &aeliminado."
+  slot-selected: "{prefix}&eSlot &f{slot} &eseleccionado. &7Clic en un item de tu inventario&8, &7clic derecho = cantidad&8, &7shift + clic derecho = vaciar&8."
+
+# Textos que devuelven los placeholders de PlaceholderAPI
+# %jpsk_exists_<id>% y %jpsk_ready_<id>_<pagina>_<slot>%
+placeholder:
+  yes: "si"
+  no: "no"

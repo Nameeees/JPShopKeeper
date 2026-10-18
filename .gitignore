@@ -1,0 +1,22 @@
+# Maven
+target/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+
+# Sistema
+Thumbs.db
+Desktop.ini
+*~
+*.bak
+
+# Servidores de prueba locales (pesados: no se publican)
+.test-servers/
+
+# Web de documentacion compilada (la genera GitHub Actions)
+site/

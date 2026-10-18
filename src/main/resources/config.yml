@@ -1,0 +1,133 @@
+# ============================================================
+#  JPShopKeeper - config.yml
+#  Cambia VALORES, no claves. Comentarios en ASCII.
+#  config-version lo gestiona el plugin: no lo bajes nunca.
+# ============================================================
+
+config-version: 1
+
+# ------------------------------------------------------------
+#  Ajustes generales
+# ------------------------------------------------------------
+settings:
+  # Idioma de TODOS los textos: es (por defecto) o en.
+  # Language of every text: es (default) or en.
+  # El plugin busca messages_<idioma>.yml y menus_<idioma>.yml y, si no
+  # existen, usa messages.yml/menus.yml. Para anadir otro idioma solo hay
+  # que copiar los textos a messages_XX.yml y menus_XX.yml.
+  language: es
+  # MiniMessage (Paper 1.16+): permite etiquetas como <red>Hola</red> o
+  # <gradient:#00ff00:#0088ff>texto</gradient> en los textos. Los codigos &
+  # y &#RRGGBB siguen funcionando igual. En Spigot no tiene efecto.
+  mini-message: false
+  # Informacion extra en consola (solo para depurar).
+  debug: false
+  # Avisa en consola cuando el NPC de un trader no existia y se regenera.
+  log-npc-respawn: true
+
+# ------------------------------------------------------------
+#  Sonidos (por clave semantica)
+#  Cada clave es una LISTA de candidatos: se usa el primero
+#  disponible en tu version (1.8 usa nombres antiguos, 1.9+ los
+#  modernos). El orden de la lista es la prioridad.
+# ------------------------------------------------------------
+sounds:
+  enabled: true
+  # Volumen y tono de todos los sonidos del plugin.
+  volume: 0.7
+  pitch: 1.0
+  open:    [UI_BUTTON_CLICK, CLICK]
+  success: [ENTITY_PLAYER_LEVELUP, LEVEL_UP]
+  error:   [ENTITY_VILLAGER_NO, VILLAGER_NO]
+  set:     [ENTITY_EXPERIENCE_ORB_PICKUP, ORB_PICKUP]
+  remove:  [ENTITY_VILLAGER_YES, VILLAGER_YES]
+
+# ------------------------------------------------------------
+#  NPCs (mobs nativos con IA desactivada; sin NMS ni Citizens)
+#  El NPC queda invulnerable, silencioso, sin IA y anclado a su
+#  punto: si algo lo empuja o desaparece, el plugin lo corrige.
+#  Al arrancar, el plugin carga el chunk de cada trader para
+#  verificar/generar su NPC (los chunks sin jugadores cercanos
+#  pueden estar descargados).
+# ------------------------------------------------------------
+npc:
+  # Tipo de mob por defecto al crear un trader (nombre Bukkit).
+  default-type: VILLAGER
+  # Tipos permitidos en /trader create y en el boton "Tipo de mob".
+  # Los mobs que no existan en tu version se rechazan con un aviso (y el boton
+  # del editor los salta), asi que puedes dejar la lista completa.
+  allowed-types:
+    - VILLAGER
+    - ZOMBIE
+    - SKELETON
+    - CREEPER
+    - WITCH
+    - BLAZE
+    - IRON_GOLEM
+    - SNOWMAN
+    # Mobs de versiones modernas (1.14+).
+    - ZOMBIE_VILLAGER
+    - WANDERING_TRADER
+    - PILLAGER
+    - VINDICATOR
+    - ALLAY
+    - CAMEL
+    - SNIFFER
+  # El NPC gira la cabeza hacia el jugador mas cercano.
+  look-at-players: true
+  # Radio en bloques para mirar jugadores.
+  look-radius: 6.0
+  # Cada cuantos ticks se revisa posicion/mirada (20 ticks = 1 segundo).
+  maintenance-interval-ticks: 40
+  # Anclaje anti-empuje: cada X ticks el NPC se re-fija a su punto si algo
+  # lo movio (empujones de hitbox, knockback...). 1 = inamovible del todo
+  # (recomendado, tambien en 1.8 donde no existe setCollidable).
+  # Subelo solo si tienes muchisimos NPCs y notas carga.
+  anchor-interval-ticks: 1
+  # Si el NPC se aleja mas de esta distancia de su punto, se devuelve.
+  snap-distance: 0.35
+  # Cancela dano, fuego, portales y lazos sobre los NPCs; si el NPC
+  # muere o desaparece, se regenera automaticamente.
+  protect: true
+  # Persistencia forzada: el NPC no desaparece por distancia y en
+  # 1.14+ se marca como persistente.
+  force-persistent: true
+
+# ------------------------------------------------------------
+#  Integraciones opcionales
+# ------------------------------------------------------------
+hooks:
+  # PlaceholderAPI: registra los placeholders %jpsk_...% (solo si el
+  # plugin esta instalado en el servidor).
+  #   %jpsk_traders%  %jpsk_exists_<id>%  %jpsk_name_<id>%
+  #   %jpsk_world_<id>%  %jpsk_x_<id>%  %jpsk_pages_<id>%
+  #   %jpsk_trades_<id>%  %jpsk_cooldown_<id>_<pagina>_<slot>%
+  placeholderapi: true
+
+# ------------------------------------------------------------
+#  Tradeos
+# ------------------------------------------------------------
+trades:
+  # Comparacion de los items del coste. Solo se cobra si el item
+  # del jugador coincide con lo pedido segun estas reglas.
+  match:
+    # Nombre personalizado del item.
+    name: true
+    # Lore completa.
+    lore: false
+    # Encantamientos.
+    enchantments: true
+    # Durabilidad/dano (en 1.8 tambien color de lana, tinte, etc.).
+    durability: true
+    # NBT crudo del item: soporte para items de otros plugins (tokens,
+    # vouchers, items con datos personalizados). Si el coste tiene NBT
+    # propio, solo se acepta un item del jugador con ese mismo NBT.
+    nbt: true
+  # true  = si el inventario esta lleno, el resultado cae al suelo.
+  # false = el tradeo se cancela con aviso si no cabe.
+  drop-result-if-full: true
+  # Maximo de paginas por trader (el menu soporta hasta 45).
+  max-pages: 45
+  # Maximo de slots de coste por tradeo (1-3). Solo informativo:
+  # el editor usa exactamente este numero de slots.
+  max-cost-slots: 3

@@ -1,0 +1,137 @@
+[CENTER][SIZE=6][B][COLOR=#55FF55]JP[/COLOR]ShopKeeper[/B][/SIZE]
+[SIZE=4]NPCs comerciantes con tradeos y páginas · Un solo JAR de la 1.8 a la última versión[/SIZE]
+
+[IMG]URL_DEL_BANNER[/IMG][/CENTER]
+
+[HR][/HR]
+
+[SIZE=5][B]¿Qué es?[/B][/SIZE]
+
+[B]JPShopKeeper[/B] añade [B]NPCs comerciantes[/B] a tu servidor sin Citizens y sin NMS: creas el NPC con un comando, lo colocas donde quieras y montas sus ofertas desde un [B]editor de menús[/B]. Tus jugadores solo tienen que hacer [B]clic derecho[/B] en el NPC y comerciar con un clic.
+
+Un único archivo funciona de la [B]1.8[/B] a la [B]última versión[/B] de Minecraft (Spigot y Paper), con [B]Vault[/B] y [B]PlaceholderAPI[/B] totalmente opcionales.
+
+[CENTER][IMG]URL_FEATURES[/IMG][/CENTER]
+
+[HR][/HR]
+
+[SIZE=5][B]Características[/B][/SIZE]
+
+[LIST]
+[*][B]Sin dependencias obligatorias[/B]: ni Citizens, ni NMS, ni librerías externas. Vault (dinero) y PlaceholderAPI (placeholders) son opcionales.
+[*][B]Un JAR para todas las versiones[/B]: materiales, sonidos y entidades se resuelven por nombre en tiempo de ejecución. De la 1.8 a la última.
+[*][B]Editor 100% en menús[/B]: páginas, tradeos, nombre del NPC, tipo de mob, mover el NPC y vista previa como jugador. Nada de editar archivos a mano.
+[*][B]Tradeos completos[/B]: hasta 3 items de coste + precio en monedas, resultado, permiso propio y enfriamiento por jugador.
+[*][B]Soporte NBT[/B]: los items de otros plugins (tokens, vouchers, objetos con datos propios) se guardan tal cual; si se usan como coste, solo se acepta un item con ese mismo NBT.
+[*][B]NPCs robustos[/B]: invulnerables, sin IA, anclados a su punto (no los mueve ni el knockback), mirando al jugador más cercano y regenerándose solos si desaparecen.
+[*][B]Todo configurable[/B]: textos en messages.yml, menús en menus.yml y todos los números en config.yml.
+[*][B]Español e inglés incluidos[/B]: cambia settings.language en config.yml. Añadir otro idioma es copiar los textos a messages_XX.yml y menus_XX.yml.
+[*][B]Con lo moderno[/B]: colores [B]&#RRGGBB[/B] (1.16+, aproximados en versiones antiguas), [B]custom-model-data[/B], cabezas de jugador en los iconos y [B]MiniMessage[/B] opcional en Paper 1.16+.
+[/LIST]
+
+[CENTER][IMG]URL_VERSIONS[/IMG][/CENTER]
+
+[CENTER][IMG]URL_MODERN[/IMG][/CENTER]
+
+[HR][/HR]
+
+[SIZE=5][B]Instalación[/B][/SIZE]
+
+[LIST=1]
+[*]Descarga el JAR y colócalo en la carpeta [B]plugins/[/B] de tu servidor.
+[*]Opcional: instala [B]Vault[/B] + un plugin de economía si quieres tradeos con dinero, y [B]PlaceholderAPI[/B] si quieres usar los placeholders.
+[*]Reinicia el servidor: se crean config.yml, messages.yml y menus.yml.
+[/LIST]
+
+[B]Primeros pasos[/B]
+
+[LIST=1]
+[*][B]/trader create mi_tienda[/B] donde quieras el NPC (puedes elegir el mob).
+[*]Se abre el panel: renombra el NPC, elige el mob y entra en [B]Páginas y tradeos[/B].
+[*]Añade una página, entra en ella y haz clic en un slot libre para crear un tradeo.
+[*]En el editor: clic en un slot de coste o del resultado y después clic en un item de tu inventario.
+[*][B]Guardar tradeo[/B]. Ya puedes hacer clic derecho en el NPC como jugador.
+[/LIST]
+
+[CENTER][IMG]URL_SETUP[/IMG][/CENTER]
+
+[HR][/HR]
+
+[SIZE=5][B]Comandos y permisos[/B][/SIZE]
+
+Alias del comando: /trader, /traders, /jpsk
+
+[LIST]
+[*][B]/trader help[/B] — ayuda · sin permiso
+[*][B]/trader create <id> [mob][/B] — crea el NPC donde estás · [I]jpshopkeeper.admin.create[/I]
+[*][B]/trader edit <id>[/B] — abre el panel de edición · [I]jpshopkeeper.admin.edit[/I]
+[*][B]/trader rename <id> <nombre>[/B] — renombra el NPC · [I]jpshopkeeper.admin.edit[/I]
+[*][B]/trader list[/B] — lista los traders · [I]jpshopkeeper.admin.edit[/I]
+[*][B]/trader remove <id>[/B] — elimina el trader y sus datos · [I]jpshopkeeper.admin.remove[/I]
+[*][B]/trader tp <id>[/B] — te teletransporta al NPC · [I]jpshopkeeper.admin.teleport[/I]
+[*][B]/trader reload[/B] — recarga configuración y datos · [I]jpshopkeeper.admin.reload[/I]
+[/LIST]
+
+[LIST]
+[*][I]jpshopkeeper.use[/I] — abrir los menús de tradeo · por defecto: [B]todos[/B]
+[*][I]jpshopkeeper.admin[/I] — acceso completo (incluye los cinco permisos anteriores) · por defecto: [B]operadores[/B]
+[/LIST]
+
+[CENTER][IMG]URL_COMMANDS[/IMG][/CENTER]
+
+Cada tradeo puede exigir además su propio permiso (campo "Permiso" del editor).
+
+[HR][/HR]
+
+[SIZE=5][B]Configuración[/B][/SIZE]
+
+[LIST]
+[*][B]config.yml[/B] — idioma, mob por defecto y mobs permitidos, comportamiento del NPC (mirada, anclaje, protección, persistencia), sonidos y reglas de comparación de items.
+[*][B]messages.yml[/B] — todos los textos visibles (colores con &).
+[*][B]menus.yml[/B] — títulos, botones, relleno y plantillas de lore de los 6 menús.
+[*][B]traders/<id>.yml[/B] — un archivo por trader, editable a mano (usa /trader reload al terminar).
+[/LIST]
+
+[CENTER][IMG]URL_TRADES[/IMG][/CENTER]
+
+[SIZE=4][B]Placeholders (PlaceholderAPI)[/B][/SIZE]
+
+[SPOILER="Ver placeholders"]
+[LIST]
+[*]%jpsk_traders% — número de traders
+[*]%jpsk_maxpages% — máximo de páginas por trader
+[*]%jpsk_exists_<id>% — sí/no
+[*]%jpsk_name_<id>% · %jpsk_world_<id>%
+[*]%jpsk_x_<id>% · %jpsk_y_<id>% · %jpsk_z_<id>%
+[*]%jpsk_pages_<id>% · %jpsk_trades_<id>%
+[*]%jpsk_cooldown_<id>_<página>_<slot>% — segundos que le quedan al jugador (0 = listo)
+[*]%jpsk_ready_<id>_<página>_<slot>% — sí/no
+[/LIST]
+El número de página empieza en 1 y el slot es el número visible del editor (1-28).
+[/SPOILER]
+
+[HR][/HR]
+
+[SIZE=5][B]Preguntas frecuentes[/B][/SIZE]
+
+[B]¿Puedo usar skins de jugador en los NPCs?[/B]
+No: para que un mismo JAR funcione de la 1.8 a la última sin romperse, los NPCs son mobs nativos. Las skins de jugador exigirían paquetes distintos por versión (o Citizens).
+
+[B]¿Los NPCs sobreviven a los reinicios?[/B]
+Sí. Se guardan su UUID y su posición: al arrancar el plugin los adopta y, si alguno no existe (por un crash o un /kill), lo regenera solo.
+
+[B]¿Y si no tengo Vault?[/B]
+Los tradeos de items funcionan igual. Los que cuestan dinero avisan de que el servidor no tiene economía y no cobran nada.
+
+[B]El NPC no aparece y la consola avisa de que se regenera cada pocos segundos.[/B]
+Algo cancela la aparición de mobs en ese punto: regiones de WorldGuard con mob-spawning: deny, claims que bloquean mobs o limpiadores de entidades. Mueve el trader a una zona permitida o ajusta esa protección; el plugin reintenta la generación cada 30 segundos y avisa con las coordenadas exactas.
+
+[CENTER][IMG]URL_NPCS[/IMG][/CENTER]
+
+[HR][/HR]
+
+[SIZE=5][B]Soporte[/B][/SIZE]
+
+Dudas, errores y sugerencias en la pestaña [B]Discussion[/B] de este recurso. Si reportas un error, incluye la versión del servidor, la versión del plugin y el error completo de la consola.
+
+[B]Licencia:[/B] MIT. Puedes usar y modificar el plugin citando la autoría.

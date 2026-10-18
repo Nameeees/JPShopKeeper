@@ -1,0 +1,106 @@
+# Update de SpigotMC para JPShopKeeper 1.1.0
+
+El campo **Update Title** es corto (una linea). El **Update Message** admite
+BBCode: activa el modo BB code del editor y pega el bloque tal cual.
+
+Recordatorio: en SpigotMC la actualizacion solo existe despues de publicar el
+recurso. Si aun no esta publicado, publica con la descripcion y guarda este
+texto para la primera update real (o usalo como notas de la version).
+
+---
+
+## 1. Update Title (English, recomendado)
+
+```
+v1.1.0 - first public release
+```
+
+Alternativas mas cortas:
+
+```
+v1.1.0 released
+```
+
+```
+1.1.0 - trade NPCs, 1.8 to latest
+```
+
+## 2. Update Message (English, BBCode)
+
+```bbcode
+[B]JPShopKeeper 1.1.0[/B] is live: trade NPCs with pages and offers. One single JAR from 1.8 to the latest version, no Citizens and no NMS.
+
+[B]What you get[/B]
+[LIST]
+[*]In-game menu editor: pages, trades, NPC name and mob type. Nothing to edit by hand.
+[*]Up to 3 cost items + coin price (Vault), result, per-trade permission and per-player cooldown.
+[*]NBT support: tokens and vouchers from other plugins are stored as they are.
+[*]NPCs that never break: invulnerable, no AI, silent, anchored in place, looking at nearby players and regenerating themselves.
+[*]English and Spanish included (settings.language); adding another language is one file.
+[*]Optional PlaceholderAPI placeholders (%jpsk_...%) and optional Vault for money trades.
+[/LIST]
+
+[B]Built for modern servers[/B]
+[LIST]
+[*][B]&#RRGGBB[/B] hex colours everywhere (native on 1.16+, approximated on older versions).
+[*][B]MiniMessage[/B] (optional, Paper 1.16+): <red>, <gradient:#00ff00:#0088ff>...
+[*][B]custom-model-data[/B] (1.14+) and player heads as menu icons.
+[*]Cooldowns survive server restarts.
+[/LIST]
+
+[B]Checked before release[/B]
+[LIST]
+[*]On the latest Paper, material names no longer break the menus.
+[*]A cost can no longer be paid with the armour you are wearing (1.9+).
+[*]1.8: NPCs are really AI-free and silent now, and enchanted items can be traded.
+[*]Safer trader files, no orphan NPCs, no duplicated or lost chat input.
+[*]Menus render about 7 times faster; 23 automated tests.
+[/LIST]
+
+Tested on Paper 1.8.8 and Paper 26.3. Free, MIT licensed: no metrics, no update checker and no network calls. The JAR is attached to this update.
+
+[B]Updating[/B]: drop the new JAR over the old one and restart. Your traders, messages and menus are kept; the new options are added to the default files.
+```
+
+## 3. Titulo (espanol)
+
+```
+v1.1.0 - primera version publica
+```
+
+## 4. Mensaje (espanol, BBCode)
+
+```bbcode
+[B]JPShopKeeper 1.1.0[/B] ya esta disponible: NPCs comerciantes con paginas y ofertas. Un solo JAR de la 1.8 a la ultima version, sin Citizens y sin NMS.
+
+[B]Lo que incluye[/B]
+[LIST]
+[*]Editor 100% en menus: paginas, tradeos, nombre del NPC y tipo de mob. Nada de editar archivos a mano.
+[*]Hasta 3 items de coste + precio en monedas (Vault), resultado, permiso por tradeo y enfriamiento por jugador.
+[*]Soporte NBT: los tokens y vouchers de otros plugins se guardan tal cual.
+[*]NPCs que no se rompen: invulnerables, sin IA, silenciosos, anclados en su sitio, mirando a los jugadores cercanos y regenerandose solos.
+[*]Espanol e ingles incluidos (settings.language); anadir otro idioma es un archivo.
+[*]Placeholders %jpsk_...% con PlaceholderAPI y Vault opcional para los tradeos con dinero.
+[/LIST]
+
+[B]Pensado para servidores modernos[/B]
+[LIST]
+[*]Colores hex [B]&#RRGGBB[/B] en todos los textos (nativos en 1.16+, aproximados en versiones antiguas).
+[*][B]MiniMessage[/B] opcional en Paper 1.16+: <red>, <gradient:#00ff00:#0088ff>...
+[*][B]custom-model-data[/B] (1.14+) y cabezas de jugador como iconos de menu.
+[*]Los enfriamientos sobreviven a los reinicios del servidor.
+[/LIST]
+
+[B]Revisado antes de publicar[/B]
+[LIST]
+[*]En el Paper mas reciente, los nombres de material ya no rompen los menus.
+[*]El coste ya no se puede pagar con la armadura puesta (1.9+).
+[*]1.8: los NPCs quedan de verdad sin IA y silenciosos, y los items encantados se pueden vender.
+[*]Archivos de trader mas seguros, sin NPCs huerfanos y sin perder lo escrito en el chat.
+[*]Los menus se pintan unas 7 veces mas rapido; 23 pruebas automaticas.
+[/LIST]
+
+Probado en Paper 1.8.8 y Paper 26.3. Gratis y con licencia MIT: sin metricas, sin comprobador de versiones y sin llamadas a internet. El JAR va adjunto a esta actualizacion.
+
+[B]Para actualizar[/B]: sustituye el JAR antiguo por el nuevo y reinicia. Tus traders, textos y menus se conservan; las opciones nuevas se anaden a los archivos por defecto.
+```

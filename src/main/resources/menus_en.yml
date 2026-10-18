@@ -1,0 +1,415 @@
+# ============================================================
+#  JPShopKeeper - menus_en.yml (English)
+#  Loaded when config.yml has "settings.language: en".
+#  Look and feel of every menu. The SLOTS are already designed
+#  and validated: you can change material, name and lore, and
+#  move buttons by editing their 'slot' (keeping the layout sane).
+#
+#  Materials: use the name of your version; the plugin translates
+#  modern aliases down to 1.8 automatically
+#  (GRAY_STAINED_GLASS_PANE -> STAINED_GLASS_PANE:7, etc.).
+#
+#  Modern options for every icon (ignored on versions without them):
+#   custom-model-data: 1234   -> resource pack texture (1.14+)
+#   head: PlayerName          -> player head (must be online or in the
+#                                server cache; no external lookups)
+#
+#  Colours: legacy & and, since 1.16, &#RRGGBB too.
+#
+#  Placeholders available per menu:
+#   {trader} {id} {type} {world} {coords} {pages} {trades}
+#   {page} {pages_total} {name} {count} {slot} {money} {time}
+#   {permission} {question} {details} {cost_lines} {money_line}
+#   {status} {index}
+# ============================================================
+
+# ------------------------------------------------------------
+#  1) Player trade menu (right click on the NPC)
+#  Full border frame; the inside is a 28-slot trade grid
+#  (slots 10-16, 19-25, 28-34 and 37-43). Empty grid slots are
+#  filled with the same glass pane as the frame.
+# ------------------------------------------------------------
+trade-menu:
+  title: "&8[&2{trader}&8] &7Page &a{page}&8/&7{pages}"
+  rows: 6
+  buttons:
+    prev:
+      slot: 47
+      material: ARROW
+      name: "&a◀ Previous"
+      lore:
+        - "&7Previous page of trades."
+    info:
+      slot: 49
+      material: PAPER
+      name: "&6{trader}"
+      lore:
+        - "&7Page &f{page}&7/&f{pages}"
+        - "&7Trades here: &f{count}"
+        - "&8 "
+        - "&e» Click a trade to swap"
+    next:
+      slot: 51
+      material: ARROW
+      name: "&aNext ▶"
+      lore:
+        - "&7Next page of trades."
+    close:
+      slot: 53
+      material: BARRIER
+      name: "&cClose"
+      lore:
+        - "&7Closes the menu."
+  filler:
+    slots: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 17, 18, 26, 27, 35, 36, 44, 45, 46, 48, 50, 52]
+    material: GRAY_STAINED_GLASS_PANE
+    name: "&r"
+  # Lore of every trade in the grid, line by line.
+  #  {cost_lines} = list of costs (multiline)
+  #  {money_line} = coin price (empty when the trade is free)
+  #  {status}     = status line calculated live
+  trade-item:
+    lore:
+      - "&7You give:"
+      - "{cost_lines}"
+      - "{money_line}"
+      - "&8 "
+      - "{status}"
+      - "&e» Click to swap"
+    status:
+      ready: "&a✔ Ready to trade"
+      missing-money: "&c✖ You are missing &f{money} &ccoins"
+      cooldown: "&e✖ Cooldown: &f{time}s"
+      no-permission: "&c✖ Requires the permission &f{permission}"
+      missing-items: "&c✖ You are missing items"
+      no-economy: "&c✖ The server has no economy"
+      full: "&c✖ Your inventory is full"
+
+# ------------------------------------------------------------
+#  2) Trader admin panel (shift + right click)
+# ------------------------------------------------------------
+admin-menu:
+  title: "&8[&2Admin&8] &a{trader}"
+  rows: 6
+  buttons:
+    info:
+      slot: 4
+      material: BOOK
+      name: "&6Information"
+      lore:
+        - "&7Id: &f{id}"
+        - "&7Mob: &f{type}"
+        - "&7Where: &f{world} {coords}"
+        - "&7Pages: &f{pages} &8· &7Trades: &f{trades}"
+    rename:
+      slot: 20
+      material: NAME_TAG
+      name: "&aRename NPC"
+      lore:
+        - "&7Changes the visible name of the NPC."
+        - "&8 "
+        - "&e» Click to type it"
+    type:
+      slot: 22
+      material: VILLAGER_SPAWN_EGG
+      name: "&aMob type"
+      lore:
+        - "&7Current: &f{type}"
+        - "&7Cycles through the mobs in &fconfig.yml&7."
+        - "&8 "
+        - "&e» Click to change it"
+    pages:
+      slot: 24
+      material: WRITABLE_BOOK
+      name: "&aPages and trades"
+      lore:
+        - "&7Pages: &f{pages} &8· &7Trades: &f{trades}"
+        - "&8 "
+        - "&e» Click to manage them"
+    preview:
+      slot: 29
+      material: MAP
+      name: "&aPreview as player"
+      lore:
+        - "&7Opens the menu exactly as a player sees it."
+        - "&8 "
+        - "&e» Click to preview"
+    move:
+      slot: 31
+      material: ENDER_PEARL
+      name: "&aBring NPC here"
+      lore:
+        - "&7Moves the NPC to your current position."
+        - "&8 "
+        - "&e» Click to move it"
+    delete:
+      slot: 33
+      material: TNT
+      name: "&4Delete trader"
+      lore:
+        - "&7Deletes the NPC and every trade."
+        - "&8 "
+        - "&c» Click to delete"
+    close:
+      slot: 49
+      material: BARRIER
+      name: "&cClose"
+      lore:
+        - "&7Closes this menu."
+  filler:
+    slots: [0, 1, 2, 3, 5, 6, 7, 8, 9, 17, 18, 26, 27, 35, 36, 44, 45, 46, 47, 48, 50, 51, 52, 53]
+    material: GRAY_STAINED_GLASS_PANE
+    name: "&r"
+
+# ------------------------------------------------------------
+#  3) Page list of a trader
+#  Inside: slots 0-44 (one page per slot)
+# ------------------------------------------------------------
+pages-menu:
+  title: "&8[&2Admin&8] &aPages of {trader}"
+  rows: 6
+  buttons:
+    back:
+      slot: 45
+      material: ARROW
+      name: "&a◀ Back"
+      lore:
+        - "&7Back to the trader panel."
+    add:
+      slot: 49
+      material: LIME_DYE
+      name: "&aAdd page"
+      lore:
+        - "&7Creates a new page of trades."
+        - "&8 "
+        - "&e» Click to add it"
+    close:
+      slot: 53
+      material: BARRIER
+      name: "&cClose"
+      lore:
+        - "&7Closes this menu."
+  filler:
+    slots: [46, 47, 48, 50, 51, 52]
+    material: GRAY_STAINED_GLASS_PANE
+    name: "&r"
+  # Icon of each page in the list
+  page-icon:
+    material: MAP
+    name: "&aPage {page}"
+    lore:
+      - "&7Name: &f{name}"
+      - "&7Trades: &f{count}"
+      - "&8 "
+      - "&e» Click to edit"
+
+# ------------------------------------------------------------
+#  4) Editor of one page of trades
+#  Same frame and 28-slot grid as the player menu: whatever you
+#  place here is exactly what the player will see.
+# ------------------------------------------------------------
+page-editor-menu:
+  title: "&8[&2Admin&8] &aPage {page} &8· &7{name}"
+  rows: 6
+  buttons:
+    back:
+      slot: 45
+      material: ARROW
+      name: "&a◀ Back"
+      lore:
+        - "&7Back to the page list."
+    prev:
+      slot: 46
+      material: ARROW
+      name: "&a◀ Previous page"
+      lore:
+        - "&7Edits the previous page."
+    rename:
+      slot: 48
+      material: NAME_TAG
+      name: "&aRename page"
+      lore:
+        - "&7Changes the name of this page."
+        - "&8 "
+        - "&e» Click to type it"
+    preview:
+      slot: 49
+      material: MAP
+      name: "&aPreview as player"
+      lore:
+        - "&7Previews this page."
+        - "&8 "
+        - "&e» Click to open it"
+    delete:
+      slot: 50
+      material: TNT
+      name: "&4Delete page"
+      lore:
+        - "&7Deletes the page and every trade on it."
+        - "&8 "
+        - "&c» Click to delete"
+    next:
+      slot: 52
+      material: ARROW
+      name: "&aNext page ▶"
+      lore:
+        - "&7Edits the next page."
+    close:
+      slot: 53
+      material: BARRIER
+      name: "&cClose"
+      lore:
+        - "&7Closes this menu."
+  filler:
+    slots: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 17, 18, 26, 27, 35, 36, 44, 47, 51]
+    material: GRAY_STAINED_GLASS_PANE
+    name: "&r"
+  # Empty trade slot (name and lore invite the click)
+  empty-slot:
+    material: LIGHT_GRAY_STAINED_GLASS_PANE
+    name: "&8Empty"
+    lore:
+      - "&7Click to create a trade here."
+  # Configured trade without a result: visual warning
+  incomplete-slot:
+    material: BARRIER
+    name: "&cIncomplete trade"
+    lore:
+      - "&7The result is missing."
+      - "&8 "
+      - "&e» Click to finish it"
+  # Lore APPENDED to the icon of a complete trade
+  trade-slot-hint:
+    - "&8 "
+    - "&e» Click to edit"
+    - "&7Shift + click: &cdelete trade"
+
+# ------------------------------------------------------------
+#  5) Editor of one trade (cost, result, price, permission...)
+#  Slots: 19/20/21 costs · 23 result · 22 arrow
+#         28 money · 30 permission · 32 cooldown
+#         38 save · 42 delete · 45 back · 53 close
+# ------------------------------------------------------------
+trade-editor-menu:
+  title: "&8[&2Admin&8] &aTrade &8· &7slot {slot}"
+  rows: 6
+  buttons:
+    info:
+      slot: 4
+      material: PAPER
+      name: "&6How to configure"
+      lore:
+        - "&7Click a cost or result slot and then"
+        - "&7click an item in your inventory."
+        - "&8 "
+        - "&7Right click: &famount"
+        - "&7Shift + right click: &fclear"
+        - "&8 "
+        - "&7Items with NBT from other plugins: &asupported"
+    arrow:
+      slot: 22
+      material: ARROW
+      name: "&8»"
+      lore:
+        - "&7Cost  →  result."
+    money:
+      slot: 28
+      material: GOLD_INGOT
+      name: "&6Money"
+      lore:
+        - "&7Current: &f{money}"
+        - "&8 "
+        - "&e» Click to change it"
+    permission:
+      slot: 30
+      material: NAME_TAG
+      name: "&ePermission"
+      lore:
+        - "&7Current: &f{permission}"
+        - "&8 "
+        - "&e» Click to change it"
+    cooldown:
+      slot: 32
+      material: WATCH
+      name: "&eCooldown"
+      lore:
+        - "&7Current: &f{time}s"
+        - "&8 "
+        - "&e» Click to change it"
+    save:
+      slot: 38
+      material: LIME_DYE
+      name: "&aSave trade"
+      lore:
+        - "&7Validates and saves the trade."
+        - "&8 "
+        - "&e» Click to save"
+    delete:
+      slot: 42
+      material: TNT
+      name: "&4Delete trade"
+      lore:
+        - "&7Removes this trade from the page."
+        - "&8 "
+        - "&c» Click to delete"
+    back:
+      slot: 45
+      material: ARROW
+      name: "&a◀ Back"
+      lore:
+        - "&7Back to the page editor."
+    close:
+      slot: 53
+      material: BARRIER
+      name: "&cClose"
+      lore:
+        - "&7Closes this menu."
+  filler:
+    slots: [0, 1, 2, 3, 5, 6, 7, 8, 9, 17, 18, 26, 27, 35, 36, 44, 46, 47, 48, 49, 50, 51, 52]
+    material: GRAY_STAINED_GLASS_PANE
+    name: "&r"
+  # Name of the empty cost slots ({index} = 1..3)
+  cost-placeholder:
+    material: PAPER
+    name: "&7Cost &f{index}"
+    lore:
+      - "&7Click to select it"
+      - "&7and then click an item."
+  # Name of the empty result slot
+  result-placeholder:
+    material: PAPER
+    name: "&7Result"
+    lore:
+      - "&7Click to select it"
+      - "&7and then click an item."
+
+# ------------------------------------------------------------
+#  6) Confirmation menu (destructive actions)
+#  {question} = question and {details} = detail lines
+# ------------------------------------------------------------
+confirm-menu:
+  title: "&8[&2Confirm&8] &aDelicate action"
+  rows: 3
+  buttons:
+    confirm:
+      slot: 11
+      material: LIME_DYE
+      name: "&a✔ Confirm"
+      lore:
+        - "&7Applies the action."
+    info:
+      slot: 13
+      material: PAPER
+      name: "&6{question}"
+      lore:
+        - "{details}"
+    cancel:
+      slot: 15
+      material: RED_DYE
+      name: "&c✖ Cancel"
+      lore:
+        - "&7Cancels and goes back."
+  filler:
+    slots: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+    material: GRAY_STAINED_GLASS_PANE
+    name: "&r"

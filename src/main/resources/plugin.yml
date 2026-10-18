@@ -1,0 +1,49 @@
+# ============================================================
+#  JPShopKeeper - plugin.yml
+#  Compilado contra Spigot 1.8.8 (bytecode Java 8):
+#  funciona de la 1.8 a la ultima version.
+#  api-version es ignorado por las versiones antiguas y
+#  activa el comportamiento moderno de materiales en 1.13+.
+# ============================================================
+name: JPShopKeeper
+version: ${project.version}
+main: com.jp.shopkeeper.JPShopKeeper
+api-version: 1.13
+authors: [JP]
+description: "NPCs comerciantes: clic derecho abre tradeos con paginas; shift+clic derecho abre el editor. Compatible 1.8 - ultima version."
+softdepend: [Vault, PlaceholderAPI]
+
+commands:
+  trader:
+    description: Gestion de traders (crear, editar, listar, recargar).
+    usage: /trader help
+    aliases: [traders, jpsk]
+
+permissions:
+  jpshopkeeper.use:
+    description: Permite abrir los menus de tradeo de los NPCs.
+    default: true
+  jpshopkeeper.admin:
+    description: Acceso completo al panel de administracion de traders.
+    default: op
+    children:
+      jpshopkeeper.admin.create: true
+      jpshopkeeper.admin.edit: true
+      jpshopkeeper.admin.remove: true
+      jpshopkeeper.admin.teleport: true
+      jpshopkeeper.admin.reload: true
+  jpshopkeeper.admin.create:
+    description: Crear traders con /trader create.
+    default: op
+  jpshopkeeper.admin.edit:
+    description: Editar traders (panel con shift+clic derecho, /trader edit, /trader rename, /trader list).
+    default: op
+  jpshopkeeper.admin.remove:
+    description: Eliminar traders con /trader remove.
+    default: op
+  jpshopkeeper.admin.teleport:
+    description: Teletransportarse a un trader con /trader tp.
+    default: op
+  jpshopkeeper.admin.reload:
+    description: Recargar la configuracion con /trader reload.
+    default: op

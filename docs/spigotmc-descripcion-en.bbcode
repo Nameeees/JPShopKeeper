@@ -1,0 +1,137 @@
+[CENTER][SIZE=6][B][COLOR=#55FF55]JP[/COLOR]ShopKeeper[/B][/SIZE]
+[SIZE=4]Trade NPCs with pages and offers · One single JAR from 1.8 to the latest version[/SIZE]
+
+[IMG]URL_OF_BANNER[/IMG][/CENTER]
+
+[HR][/HR]
+
+[SIZE=5][B]What is it?[/B][/SIZE]
+
+[B]JPShopKeeper[/B] adds [B]trade NPCs[/B] to your server with no Citizens and no NMS: create the NPC with a command, place it wherever you want and build its offers from an [B]in-game menu editor[/B]. Your players just [B]right click[/B] the NPC and trade with a single click.
+
+One single file works from [B]1.8[/B] to the [B]latest version[/B] of Minecraft (Spigot and Paper), with [B]Vault[/B] and [B]PlaceholderAPI[/B] completely optional.
+
+[CENTER][IMG]URL_FEATURES[/IMG][/CENTER]
+
+[HR][/HR]
+
+[SIZE=5][B]Features[/B][/SIZE]
+
+[LIST]
+[*][B]No required dependencies[/B]: no Citizens, no NMS, no external libraries. Vault (money) and PlaceholderAPI (placeholders) are optional.
+[*][B]One JAR for every version[/B]: materials, sounds and entities are resolved by name at runtime. From 1.8 to the latest.
+[*][B]100% menu-based editor[/B]: pages, trades, NPC name, mob type, move the NPC and player preview. No need to edit files by hand.
+[*][B]Complete trades[/B]: up to 3 cost items + coin price, result, its own permission and per-player cooldown.
+[*][B]NBT support[/B]: items from other plugins (tokens, vouchers, items with custom data) are stored as they are; when used as a cost, only an item with that exact NBT is accepted.
+[*][B]Sturdy NPCs[/B]: invulnerable, no AI, anchored to their spot (not even knockback moves them), looking at the nearest player and regenerating themselves if they vanish.
+[*][B]Everything configurable[/B]: texts in messages.yml, menus in menus.yml and every number in config.yml.
+[*][B]Spanish and English included[/B]: change settings.language in config.yml. Adding another language is just copying the texts to messages_XX.yml and menus_XX.yml.
+[*][B]Modern extras[/B]: [B]&#RRGGBB[/B] colours (1.16+, approximated on older versions), [B]custom-model-data[/B], player heads as menu icons and optional [B]MiniMessage[/B] on Paper 1.16+.
+[/LIST]
+
+[CENTER][IMG]URL_VERSIONS[/IMG][/CENTER]
+
+[CENTER][IMG]URL_MODERN[/IMG][/CENTER]
+
+[HR][/HR]
+
+[SIZE=5][B]Installation[/B][/SIZE]
+
+[LIST=1]
+[*]Download the JAR and drop it into your server's [B]plugins/[/B] folder.
+[*]Optional: install [B]Vault[/B] + an economy plugin if you want money trades, and [B]PlaceholderAPI[/B] if you want to use the placeholders.
+[*]Restart the server: config.yml, messages.yml and menus.yml are generated.
+[/LIST]
+
+[B]Quick start[/B]
+
+[LIST=1]
+[*][B]/trader create my_shop[/B] where you want the NPC (you may pick the mob).
+[*]The panel opens: rename the NPC, pick the mob and open [B]Pages and trades[/B].
+[*]Add a page, open it and click an empty slot to create a trade.
+[*]In the editor: click a cost or result slot and then click an item in your inventory.
+[*][B]Save trade[/B]. Players can now right click the NPC.
+[/LIST]
+
+[CENTER][IMG]URL_SETUP[/IMG][/CENTER]
+
+[HR][/HR]
+
+[SIZE=5][B]Commands and permissions[/B][/SIZE]
+
+Command aliases: /trader, /traders, /jpsk
+
+[LIST]
+[*][B]/trader help[/B] — help · no permission
+[*][B]/trader create <id> [mob][/B] — creates the NPC where you stand · [I]jpshopkeeper.admin.create[/I]
+[*][B]/trader edit <id>[/B] — opens the editor panel · [I]jpshopkeeper.admin.edit[/I]
+[*][B]/trader rename <id> <name>[/B] — renames the NPC · [I]jpshopkeeper.admin.edit[/I]
+[*][B]/trader list[/B] — lists every trader · [I]jpshopkeeper.admin.edit[/I]
+[*][B]/trader remove <id>[/B] — deletes the trader and its data · [I]jpshopkeeper.admin.remove[/I]
+[*][B]/trader tp <id>[/B] — teleports you to the NPC · [I]jpshopkeeper.admin.teleport[/I]
+[*][B]/trader reload[/B] — reloads config and data · [I]jpshopkeeper.admin.reload[/I]
+[/LIST]
+
+[LIST]
+[*][I]jpshopkeeper.use[/I] — open the trade menus · default: [B]everyone[/B]
+[*][I]jpshopkeeper.admin[/I] — full access (includes the five permissions above) · default: [B]operators[/B]
+[/LIST]
+
+[CENTER][IMG]URL_COMMANDS[/IMG][/CENTER]
+
+Every trade can also require its own permission (the "Permission" field of the editor).
+
+[HR][/HR]
+
+[SIZE=5][B]Configuration[/B][/SIZE]
+
+[LIST]
+[*][B]config.yml[/B] — language, default mob and allowed mobs, NPC behaviour (looking, anchoring, protection, persistence), sounds and item comparison rules.
+[*][B]messages.yml[/B] — every visible text (colors with &).
+[*][B]menus.yml[/B] — titles, buttons, filler and lore templates of the 6 menus.
+[*][B]traders/<id>.yml[/B] — one file per trader, editable by hand (run /trader reload when done).
+[/LIST]
+
+[CENTER][IMG]URL_TRADES[/IMG][/CENTER]
+
+[SIZE=4][B]Placeholders (PlaceholderAPI)[/B][/SIZE]
+
+[SPOILER="Show placeholders"]
+[LIST]
+[*]%jpsk_traders% — amount of traders
+[*]%jpsk_maxpages% — maximum pages per trader
+[*]%jpsk_exists_<id>% — yes/no
+[*]%jpsk_name_<id>% · %jpsk_world_<id>%
+[*]%jpsk_x_<id>% · %jpsk_y_<id>% · %jpsk_z_<id>%
+[*]%jpsk_pages_<id>% · %jpsk_trades_<id>%
+[*]%jpsk_cooldown_<id>_<page>_<slot>% — seconds left for the player (0 = ready)
+[*]%jpsk_ready_<id>_<page>_<slot>% — yes/no
+[/LIST]
+The page number starts at 1 and the slot is the visible number shown in the editor (1-28).
+[/SPOILER]
+
+[HR][/HR]
+
+[SIZE=5][B]FAQ[/B][/SIZE]
+
+[B]Can I use player skins on the NPCs?[/B]
+No: so that one single JAR works from 1.8 to the latest version without breaking, the NPCs are native mobs. Player skins would require different packets per version (or Citizens).
+
+[B]Do the NPCs survive restarts?[/B]
+Yes. Their UUID and position are saved: on startup the plugin adopts them and, if one is missing (crash, /kill), it regenerates it automatically.
+
+[B]What if I do not have Vault?[/B]
+Item trades work the same. Money trades warn that the server has no economy and charge nothing.
+
+[B]The NPC does not appear and the console keeps saying it is respawning.[/B]
+Something is cancelling mob spawning at that spot: WorldGuard regions with mob-spawning: deny, claims blocking mobs or entity cleaners. Move the trader to an allowed area or adjust that protection; the plugin retries spawning every 30 seconds and warns with the exact coordinates.
+
+[CENTER][IMG]URL_NPCS[/IMG][/CENTER]
+
+[HR][/HR]
+
+[SIZE=5][B]Support[/B][/SIZE]
+
+Questions, bugs and suggestions go to the [B]Discussion[/B] tab of this resource. When reporting a bug, please include your server version, the plugin version and the full console error.
+
+[B]License:[/B] MIT. You may use and modify the plugin as long as you credit the author.

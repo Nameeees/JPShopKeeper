@@ -1,0 +1,16 @@
+/* Ajustes propios de la documentacion de JPShopKeeper. */
+
+.md-typeset img {
+  border-radius: 10px;
+}
+
+.md-typeset table:not([class]) th {
+  background-color: rgba(74, 222, 128, 0.12);
+}
+
+/* Las capturas e infografias ocupan todo el ancho de la columna. */
+.md-typeset img.screenshot {
+  display: block;
+  width: 100%;
+  margin: 1rem 0;
+}

@@ -1,0 +1,104 @@
+# ============================================================
+#  JPShopKeeper Documentation - MkDocs Material
+# ============================================================
+#  Previsualizar:  mkdocs serve    ->  http://127.0.0.1:8000
+#  Compilar:       mkdocs build    ->  site/
+#
+#  >>> PUBLICACION: las URLs estan puestas para la cuenta
+#  >>> "Nameeees" y el repositorio "JPShopKeeper".
+#  >>> Si cambias el nombre del repo o de cuenta, actualiza las
+#  >>> URLs de aqui y el remoto de git.
+# ============================================================
+
+site_name: JPShopKeeper Docs
+site_author: JP
+site_description: >-
+  Trade NPCs with pages and offers for Minecraft 1.8 to the latest version.
+  One jar, no Citizens, no NMS, edited in game.
+site_url: https://nameeees.github.io/JPShopKeeper/
+
+repo_url: https://github.com/Nameeees/JPShopKeeper
+repo_name: Nameeees/JPShopKeeper
+edit_uri: edit/main/docs-site/
+
+copyright: JPShopKeeper by JP - MIT licensed. Minecraft is a trademark of Mojang AB.
+
+# El material de SpigotMC vive en docs/, asi que el sitio usa docs-site/.
+docs_dir: docs-site
+site_dir: site
+
+theme:
+  name: material
+  logo: assets/logo.png
+  favicon: assets/favicon.png
+  language: en
+  font:
+    text: Inter
+    code: JetBrains Mono
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - navigation.footer
+    - navigation.path
+    - navigation.instant
+    - navigation.instant.progress
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.action.edit
+    - content.code.copy
+    - toc.follow
+  palette:
+    scheme: slate
+    primary: green
+    accent: green
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+extra_css:
+  - assets/extra.css
+
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Nameeees/JPShopKeeper
+      name: Source code
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/VQSvfQw8v8
+      name: Community Discord
+
+nav:
+  - Home: index.md
+  - Getting started:
+      - Installation: getting-started/installation.md
+      - Configuration: getting-started/configuration.md
+      - Languages: getting-started/languages.md
+  - Features: features.md
+  - Reference:
+      - Commands & permissions: reference/commands.md
+      - Placeholders: reference/placeholders.md
+      - Colours & format: reference/colours.md
+  - Compatibility: compatibility.md
+  - FAQ: faq.md
+  - Changelog: changelog.md
